@@ -1,0 +1,26 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+bool allElementsSame(const vector<int>& arr) {
+   int firstElement = arr[0];
+
+   for (int i = 1; i < arr.size(); i++) {
+       if (arr[i] != firstElement) {
+           return false;
+       }
+   }
+
+   return true;
+}
+
+int main() {
+   vector<int> arr1 = {1, 2, 1, 3, 1};
+   vector<int> arr2 = {1, 2, 3, 4, 5};
+
+   cout << "Sample input: {1, 2, 1, 3, 1}\nSample output: " << (allElementsSame(arr1) ? "true" : "false") << endl;
+   cout << "Sample input: {1, 2, 3, 4, 5}\nSample output: " << (allElementsSame(arr2) ? "true" : "false") << endl;
+
+   return 0;
+}
