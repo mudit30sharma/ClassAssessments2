@@ -1,0 +1,38 @@
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+
+using namespace std;
+
+vector<int> findRepeatedPair(const vector<int>& arr) {
+    unordered_map<int, int> counts;
+    vector<int> repeatedPair;
+
+    for (int num : arr) {
+        counts[num]++;
+        if (counts[num] == 2) {
+            repeatedPair.push_back(num);
+            break; // Find only the first pair
+        }
+    }
+
+    return repeatedPair;
+}
+
+int main() {
+    vector<int> arr = {3, 2, 2, 3};
+
+    vector<int> result = findRepeatedPair(arr);
+
+    if (!result.empty()) {
+        cout << "Sample input: {3, 2, 2, 3}\nSample output: ";
+        for (int num : result) {
+            cout << num << ",";
+        }
+        cout << endl;
+    } else {
+        cout << "No repeated pair found." << endl;
+    }
+
+    return 0;
+}
